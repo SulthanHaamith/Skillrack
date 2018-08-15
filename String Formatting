@@ -1,0 +1,45 @@
+  To strings are given. Print the count for how many times the first string characters be able form second string. 
+ # Constraints:
+  1>=length of string1<=1000
+  1>=length of string2<=length of string1
+ # example:
+  1. Input:  aabbccddee abc
+     Output: 2
+  2. Input:  abcdef a
+     output: 1
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+{
+int n1,n2;
+char a[1001],b[1001];
+int s[26]={0},count=0,flag=0;
+scanf("%[^\n]%n\n%[^\n]%n",a,&n1,b,&n2);
+n2-=n1+2;
+for(int i=0;i<n1;i++)
+{
+    s[a[i]-'a']++;
+}
+while(flag==0)
+{
+for(int i=0;i<n2;i++)
+{
+    if(s[b[i]-'a']>0)
+    {
+        s[b[i]-'a']--;
+    }
+    else
+    {
+        flag=1;
+        break;
+    }
+}
+if(flag==0)
+{
+    count++;
+}
+}
+printf("%d",count);
+return 0;
+}
+                                     Thankyou!!!!!!!!!!!!!
